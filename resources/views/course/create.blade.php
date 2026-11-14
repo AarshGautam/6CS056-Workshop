@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Course</title>
 </head>
+
 <body>
     <h1>Create Course</h1>
+    @if ($errors->any())
+        <div style="color: red;">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="/course" method='POST'>
         @csrf
         <div>
@@ -28,13 +40,18 @@
         <div>
             <label for="difficulty_level">Difficulty Level:</label>
             <select name="difficulty_level" id="difficulty_level" required>
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
             </select>
         </div>
         <button type="submit">Create Course</button>
     </form>
-    
+
+    <br>
+
+    <a href="/courses">Back to Courses</a>
+
 </body>
+
 </html>

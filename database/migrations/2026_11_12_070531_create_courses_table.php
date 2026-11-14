@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description', 1000);
             $table->integer('duration')->unsigned();
             $table->decimal('course_fee', 8, 2)->unsigned();
-            $table->enum('difficulty_level', ['beginner', 'intermediate', 'advanced']);
+            $table->enum('difficulty_level', ['Beginner', 'Intermediates', 'Advanced']);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
