@@ -10,16 +10,16 @@
 <body>
     <h1>Create Course</h1>
     @if ($errors->any())
-        <div style="color: red;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div style="color: red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
-    <form action="/course" method='POST'>
+    <form action="/courses" method='POST'>
         @csrf
         <div>
             <label for="name">Name:</label>
