@@ -6,7 +6,7 @@
 <body>
 
     <h1>Create Student</h1>
-    <form action="/student" method="POST">
+    <form action="/students" method="POST">
         @csrf
         <div>
             <label for="name">Name</label>

@@ -10,7 +10,7 @@
         <p>{{ session('success') }}</p>
     @endif
 
-    <a href="/student/create">Create Student</a>
+    <a href="/students/create">Create Student</a>
 
     <table border="1" cellpadding="10">
         <thead>

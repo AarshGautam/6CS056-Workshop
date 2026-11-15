@@ -13,7 +13,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('courses.index', compact('courses'));
+        return view('course.list', compact('courses'));
     }
 
     /**
@@ -21,7 +21,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('courses.create');
+        return view('course.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class CourseController extends Controller
     public function show(string $id)
     {
         $course = Course::findOrFail($id);
-        return view('courses.show', compact('course'));
+        return view('course.detail', compact('course'));
     }
 
     /**
@@ -49,7 +49,7 @@ class CourseController extends Controller
     public function edit(string $id)
     {
         $course = Course::findOrFail($id);
-        return view('courses.edit', compact('course'));
+        return view('course.edit', compact('course'));
     }
 
     /**
