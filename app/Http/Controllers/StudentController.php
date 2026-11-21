@@ -73,4 +73,17 @@ class StudentController extends Controller
         return redirect()->route('students.index')
             ->with('success', 'Student deleted successfully!');
     }
+
+    private function rules(?Student $student = null): array
+    {
+        return [
+            'name' => 'required|string|max:255',
+            'email' => ['required', 'email', 'max: 255',
+                            Rule:: unique('students')->ignore($student?->id),
+                        ],
+            'phone' => 'required|string|max:20',
+            'address' => 'nullable|string|max:500',
+            'date_of_birth' => 'nullable|date',
+        ];
+    }
 }

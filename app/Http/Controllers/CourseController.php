@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CourseController extends Controller
 {
@@ -70,5 +71,17 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
         $course->delete();
         return redirect()->route('courses.index');
+    }
+    
+    private function rules(): array
+    {
+        return [
+            'name' => 'required|string| max:255',
+            'description' => 'nullable|string',
+            'duration' => 'required|integer|min:1',
+            'fee'      => 'required|numeric|min:0',
+            'difficulty' => ['required', Rule::in(['Easy', 'Medium', 'Hard'])],
+            'is_active'=> 'boolean',
+        ];
     }
 }
